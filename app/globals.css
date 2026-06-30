@@ -1,0 +1,950 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --primary-purple: #a855f7;
+  --primary-blue: #3b82f6;
+  --primary-pink: #ec4899;
+  --dark-purple: #4c1d95;
+  --dark-bg: #0f0514;
+  --card-bg: #1a0f2e;
+  --purple-glow: #c084fc;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  background: linear-gradient(135deg, #0f0514 0%, #1a0f2e 50%, #0f0514 100%);
+  color: white;
+  min-height: 100vh;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #0a1628;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #3b82f6;
+  -webkit-border-radius: 4px;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #60a5fa;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Gradient text utilities */
+.gradient-text {
+  background: linear-gradient(to right, #a855f7, #3b82f6, #ec4899);
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+.gradient-text-alt {
+  background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+  -webkit-background-clip: text;
+  background-clip: text;
+  color: transparent;
+}
+
+/* Gradient borders */
+.gradient-border {
+  position: relative;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: var(--card-bg);
+}
+
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  inset: -2px;
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+  z-index: -1;
+  transition: opacity 0.3s ease;
+  opacity: 0.7;
+}
+
+/* Smooth animations */
+* {
+  transition: all 0.3s ease;
+}
+
+/* Button styles */
+.gradient-button {
+  background: linear-gradient(to right, var(--primary-purple), var(--primary-blue));
+  color: white;
+  font-weight: bold;
+  padding: 0.75rem 2rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.gradient-button:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(168, 85, 247, 0.4);
+}
+
+.gradient-button::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to right,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  transition: left 1s;
+}
+
+.gradient-button:hover::after {
+  left: 100%;
+}
+
+.gradient-button-alt {
+  background: linear-gradient(to right, var(--primary-blue), var(--primary-pink));
+  color: white;
+}
+
+/* Card styles */
+.casino-card {
+  background: var(--card-bg);
+  -webkit-border-radius: 0;
+  border-radius: 0;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.casino-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(168, 85, 247, 0.2);
+}
+
+/* Social button styles */
+.social-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.75rem 1.5rem;
+  -webkit-border-radius: 0.5rem;
+  border-radius: 0.5rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+}
+
+.social-button:hover {
+  transform: translateY(-3px);
+}
+
+.social-button.instagram {
+  background: linear-gradient(45deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+}
+
+.social-button.kick {
+  background: #53fc18;
+  color: #111;
+}
+
+.social-button.twitter {
+  background: #1da1f2;
+}
+
+/* Seamless floating animations */
+@keyframes seamless-float-1 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  25% {
+    transform: translate(15px, -20px) rotate(2deg);
+  }
+  50% {
+    transform: translate(-10px, -35px) rotate(0deg);
+  }
+  75% {
+    transform: translate(-20px, -15px) rotate(-2deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes seamless-float-2 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  20% {
+    transform: translate(-15px, -25px) rotate(-2deg);
+  }
+  40% {
+    transform: translate(10px, -40px) rotate(1deg);
+  }
+  60% {
+    transform: translate(20px, -45px) rotate(2deg);
+  }
+  80% {
+    transform: translate(-5px, -20px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes seamless-float-3 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  30% {
+    transform: translate(12px, -18px) rotate(1deg);
+  }
+  60% {
+    transform: translate(-18px, -30px) rotate(-1deg);
+  }
+  90% {
+    transform: translate(8px, -12px) rotate(0deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+@keyframes seamless-float-4 {
+  0% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+  15% {
+    transform: translate(-10px, -15px) rotate(-1deg);
+  }
+  35% {
+    transform: translate(15px, -28px) rotate(2deg);
+  }
+  55% {
+    transform: translate(-8px, -38px) rotate(0deg);
+  }
+  75% {
+    transform: translate(12px, -22px) rotate(1deg);
+  }
+  100% {
+    transform: translate(0, 0) rotate(0deg);
+  }
+}
+
+/* Seamless floating animation classes */
+.seamless-float-1 {
+  animation: seamless-float-1 14s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  opacity: 0.8;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.seamless-float-2 {
+  animation: seamless-float-2 16s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  opacity: 0.8;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.seamless-float-3 {
+  animation: seamless-float-3 18s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  opacity: 0.8;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+.seamless-float-4 {
+  animation: seamless-float-4 20s cubic-bezier(0.25, 0.46, 0.45, 0.94) infinite;
+  opacity: 0.8;
+  will-change: transform;
+  transform: translateZ(0);
+}
+
+/* New pulsating circle animations */
+@keyframes pulse-circle {
+  0% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+  50% {
+    opacity: 0.6;
+    transform: translate(-50%, -50%) scale(1.1);
+  }
+  100% {
+    opacity: 0.2;
+    transform: translate(-50%, -50%) scale(0.8);
+  }
+}
+
+@keyframes pulse-circle-delayed {
+  0% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+  50% {
+    opacity: 0.4;
+    transform: translate(-50%, -50%) scale(1.3);
+  }
+  100% {
+    opacity: 0.1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.animate-pulse-circle {
+  animation: pulse-circle 4s ease-in-out infinite;
+}
+
+.animate-pulse-circle-delayed {
+  animation: pulse-circle-delayed 4s ease-in-out infinite;
+  animation-delay: 2s;
+}
+
+/* Added slower, smoother pulse animation for flagman logo */
+@keyframes flagman-logo-pulse {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.02);
+  }
+}
+
+.flagman-logo-pulse {
+  animation: flagman-logo-pulse 4s ease-in-out infinite;
+}
+
+/* Remove animation on mobile and set static scale to 1.7 */
+@media (max-width: 767px) {
+  .flagman-logo-pulse {
+    animation: none;
+    transform: scale(1.7) !important;
+    /* Remove all transitions on mobile to keep logo at fixed size */
+    transition: none !important;
+  }
+
+  /* Ensure flagman logo stays at scale 1.7 even when clicked, active, focused, or hovered on mobile */
+  .flagman-container:hover .flagman-logo-pulse,
+  .flagman-container:active .flagman-logo-pulse,
+  .flagman-container:focus .flagman-logo-pulse,
+  .flagman-container .flagman-logo-pulse:hover,
+  .flagman-container .flagman-logo-pulse:active,
+  .flagman-container .flagman-logo-pulse:focus {
+    transform: scale(1.7) !important;
+    animation: none !important;
+    /* Remove transitions on all interaction states for mobile */
+    transition: none !important;
+  }
+}
+
+/* Mobile-specific flagman logo pulse animation with scale(2) */
+@keyframes flagman-logo-pulse-mobile {
+  0%,
+  100% {
+    opacity: 0.8;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(2);
+  }
+}
+
+/* Apply mobile-specific animation on screens smaller than 768px */
+@media (min-width: 768px) {
+  .flagman-logo-pulse {
+    animation: flagman-logo-pulse-mobile 4s ease-in-out infinite;
+  }
+}
+
+/* Keep the existing pulse-outline animations in case they're used elsewhere */
+@keyframes pulse-outline {
+  0% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.7;
+    transform: scale(1.03);
+  }
+  100% {
+    opacity: 0.3;
+    transform: scale(1);
+  }
+}
+
+@keyframes pulse-outline-delayed {
+  0% {
+    opacity: 0.2;
+    transform: scale(1.02);
+  }
+  50% {
+    opacity: 0.6;
+    transform: scale(1.05);
+  }
+  100% {
+    opacity: 0.2;
+    transform: scale(1.02);
+  }
+}
+
+.animate-pulse-outline {
+  animation: pulse-outline 3s ease-in-out infinite;
+}
+
+.animate-pulse-outline-delayed {
+  animation: pulse-outline-delayed 3s ease-in-out infinite;
+  animation-delay: 1.5s;
+}
+
+.animate-pulse-slow {
+  animation: pulse 4s ease-in-out infinite;
+}
+
+/* Glass effect */
+.glass-effect {
+  background: rgba(26, 26, 46, 0.7);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Responsive font sizes */
+.responsive-heading {
+  font-size: clamp(2rem, 5vw, 4rem);
+}
+
+.responsive-subheading {
+  font-size: clamp(1.2rem, 3vw, 2rem);
+}
+
+/* Accessibility focus styles */
+button:focus,
+a:focus {
+  outline: 2px solid var(--primary-purple);
+  outline-offset: 2px;
+}
+
+/* Font family utility */
+.font-montserrat {
+  font-family: var(--font-montserrat), sans-serif;
+}
+
+/* Scale utilities for zoom animation */
+.scale-100 {
+  transform: scale(1);
+}
+
+.scale-115 {
+  transform: scale(1.15);
+}
+
+/* Modified px-4 class to include bottom padding */
+.px-4 {
+  padding-left: 1rem;
+  padding-right: 1rem;
+  padding-bottom: 1rem;
+}
+
+/* Mobile-specific max-w-4xl override */
+@media (max-width: 767px) {
+  .max-w-4xl {
+    padding-top: 10%;
+    max-width: 56rem;
+  }
+}
+
+/* Desktop px-4 override - for hero section */
+@media (min-width: 768px) {
+  .px-4 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    padding-bottom: 1rem;
+  }
+}
+
+/* New px-4-social class for social section - no margin-top */
+@media (min-width: 768px) {
+  .px-4-social {
+    padding-left: 1rem;
+    padding-right: 1rem;
+    margin-top: 0%;
+  }
+}
+
+/* Featured Container Pulse Animation */
+@keyframes featured-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 15px rgba(255, 188, 31, 0.3), 0 0 25px rgba(255, 188, 31, 0.2), 0 0 35px rgba(255, 188, 31, 0.15);
+  }
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(255, 188, 31, 0.4), 0 0 35px rgba(255, 188, 31, 0.3), 0 0 50px rgba(255, 188, 31, 0.25), 0
+      0 65px rgba(255, 188, 31, 0.2);
+  }
+}
+
+/* Reduced glow intensity in featured-glow animation */
+@keyframes featured-glow {
+  0%,
+  100% {
+    filter: brightness(1);
+    box-shadow: inset 0 0 15px rgba(255, 215, 0, 0.2), 0 0 18px rgba(255, 188, 31, 0.3), 0 0 30px
+      rgba(255, 188, 31, 0.2);
+  }
+  50% {
+    filter: brightness(1.2);
+    box-shadow: inset 0 0 20px rgba(255, 215, 0, 0.3), 0 0 25px rgba(255, 188, 31, 0.45), 0 0 40px
+      rgba(255, 188, 31, 0.35), 0 0 55px rgba(255, 188, 31, 0.25);
+  }
+}
+
+/* Added will-change and transform-origin for smoother animation performance */
+.featured-container-pulse {
+  animation: featured-pulse 2s ease-in-out infinite;
+  will-change: transform, box-shadow;
+  transform-origin: center center;
+}
+
+/* Pause animation on hover */
+.featured-container-pulse:hover {
+  animation-play-state: paused;
+}
+
+.featured-container-glow {
+  animation: featured-glow 2s ease-in-out infinite;
+  will-change: filter, box-shadow;
+}
+
+/* Pause glow animation on hover */
+.featured-container-glow:hover {
+  animation-play-state: paused;
+}
+
+/* Added inner content animation for smooth transitions during pulse */
+@keyframes inner-content-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.02);
+    opacity: 0.95;
+  }
+}
+
+.featured-inner-content {
+  animation: inner-content-pulse 2s ease-in-out infinite;
+  will-change: transform, opacity;
+}
+
+/* Pause inner content animation on hover */
+.featured-inner-content:hover {
+  animation-play-state: paused;
+}
+
+/* Enhanced Outer Glow for Featured Container */
+@keyframes neon-outer-glow-blue {
+  0% {
+    box-shadow: 0 0 15px rgba(0, 191, 255, 0.3), 0 0 30px rgba(0, 128, 255, 0.2), 0 0 45px rgba(0, 64, 255, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(64, 208, 255, 0.5), 0 0 50px rgba(32, 160, 255, 0.4), 0 0 75px rgba(16, 96, 255, 0.3);
+  }
+}
+
+/* Enhanced Outer Glow for Golden Theme */
+@keyframes neon-outer-glow-golden {
+  0% {
+    box-shadow: 0 0 15px rgba(251, 191, 36, 0.3), 0 0 30px rgba(245, 158, 11, 0.2), 0 0 45px rgba(234, 88, 12, 0.1);
+  }
+  100% {
+    box-shadow: 0 0 25px rgba(252, 211, 77, 0.5), 0 0 50px rgba(251, 191, 36, 0.4), 0 0 75px rgba(245, 158, 11, 0.3);
+  }
+}
+
+/* Realistic Blue Neon Frame Effect with Smooth Hover Transitions */
+.neon-frame-blue {
+  position: relative;
+  border: 2px solid #00bfff;
+  box-shadow: inset 0 0 10px #00bfff, inset 0 0 20px #0080ff, inset 0 0 30px #0040ff, 0 0 10px #00bfff, 0 0 20px #00bfff,
+    0 0 30px #0080ff, 0 0 40px #0080ff, 0 0 50px #0040ff;
+
+  animation: neon-pulse-blue 2s ease-in-out infinite alternate;
+  transition: all 0.7s ease-out;
+}
+
+.neon-frame-blue:hover {
+  animation: neon-flicker-blue 0.15s ease-in-out infinite alternate;
+  border-color: #40d0ff;
+  box-shadow: inset 0 0 20px #40d0ff, inset 0 0 30px #20a0ff, inset 0 0 40px #1060ff, 0 0 20px #40d0ff, 0 0 30px #40d0ff,
+    0 0 40px #20a0ff, 0 0 50px #40d0ff, 0 0 60px #20a0ff;
+}
+
+/* Main pulsing animation */
+@keyframes neon-pulse-blue {
+  0% {
+    border-color: #00bfff;
+    box-shadow: inset 0 0 8px #00bfff, inset 0 0 16px #0080ff, inset 0 0 24px #0040ff, 0 0 8px #00bfff, 0 0 16px #00bfff,
+      0 0 24px #0080ff, 0 0 32px #0080ff, 0 0 40px #0040ff;
+  }
+  100% {
+    border-color: #40d0ff;
+    box-shadow: inset 0 0 15px #40d0ff, inset 0 0 25px #20a0ff, inset 0 0 35px #1060ff, 0 0 15px #40d0ff, 0 0 25px
+      #40d0ff, 0 0 40px #20a0ff, 0 0 50px #40d0ff, 0 0 60px #20a0ff;
+  }
+}
+
+/* Smoother flickering effect on hover */
+@keyframes neon-flicker-blue {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    border-color: #40d0ff;
+    box-shadow: inset 0 0 20px #40d0ff, inset 0 0 30px #20a0ff, inset 0 0 40px #1060ff, 0 0 20px #40d0ff, 0 0 30px
+      #40d0ff, 0 0 40px #20a0ff, 0 0 50px #40d0ff, 0 0 60px #20a0ff;
+  }
+  20%,
+  24%,
+  55% {
+    border-color: #60e0ff;
+    box-shadow: inset 0 0 25px #60e0ff, inset 0 0 35px #40c0ff, inset 0 0 45px #2080ff, 0 0 25px #60e0ff, 0 0 35px
+      #60e0ff, 0 0 45px #40c0ff, 0 0 55px #40c0ff, 0 0 65px #2080ff;
+  }
+}
+
+/* Enhanced outer glow for smoother transitions */
+.neon-frame-blue::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: transparent;
+  border: 1px solid rgba(0, 191, 255, 0.3);
+  -webkit-border-radius: inherit;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(0, 191, 255, 0.4), 0 0 40px rgba(0, 128, 255, 0.3), 0 0 60px rgba(0, 64, 255, 0.2);
+  animation: neon-outer-glow-blue 3s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.7s ease-out;
+}
+
+.neon-frame-blue:hover::before {
+  box-shadow: 0 0 30px rgba(64, 208, 255, 0.6), 0 0 60px rgba(32, 160, 255, 0.5), 0 0 90px rgba(16, 96, 255, 0.4);
+}
+
+/* Enhanced Neon Rays Effect */
+.neon-rays {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(0, 191, 255, 0.1) 40%,
+    rgba(0, 191, 255, 0.05) 50%,
+    transparent 60%
+  );
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: neon-rays-rotate 20s linear infinite;
+  pointer-events: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+@keyframes neon-rays-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+/* Enhanced Neon Frame Effect with Golden Theme */
+.neon-frame-golden {
+  position: relative;
+  border: 2px solid #fbbf24;
+  box-shadow: inset 0 0 10px #fbbf24, inset 0 0 20px #f59e0b, inset 0 0 30px #ea580c, 0 0 10px #fbbf24, 0 0 20px #fbbf24,
+    0 0 30px #f59e0b, 0 0 40px #f59e0b, 0 0 50px #ea580c;
+
+  animation: neon-pulse-golden 2s ease-in-out infinite alternate;
+  transition: all 0.7s ease-out;
+}
+
+.neon-frame-golden:hover {
+  animation: neon-flicker-golden 0.15s ease-in-out infinite alternate;
+  border-color: #fcd34d;
+  box-shadow: inset 0 0 20px #fcd34d, inset 0 0 30px #fbbf24, inset 0 0 40px #f59e0b, 0 0 20px #fcd34d, 0 0 30px #fcd34d,
+    0 0 40px #fbbf24, 0 0 50px #fbbf24, 0 0 60px #f59e0b;
+}
+
+/* Main pulsing animation for golden theme */
+@keyframes neon-pulse-golden {
+  0% {
+    border-color: #fbbf24;
+    box-shadow: inset 0 0 8px #fbbf24, inset 0 0 16px #f59e0b, inset 0 0 24px #ea580c, 0 0 8px #fbbf24, 0 0 16px #fbbf24,
+      0 0 24px #f59e0b, 0 0 32px #f59e0b, 0 0 40px #ea580c;
+  }
+  100% {
+    border-color: #fcd34d;
+    box-shadow: inset 0 0 15px #fcd34d, inset 0 0 25px #fbbf24, inset 0 0 35px #f59e0b, 0 0 15px #fcd34d, 0 0 25px
+      #fcd34d, 0 0 40px #fbbf24, 0 0 50px #fbbf24, 0 0 60px #f59e0b;
+  }
+}
+
+/* Smoother flickering effect on hover for golden theme */
+@keyframes neon-flicker-golden {
+  0%,
+  18%,
+  22%,
+  25%,
+  53%,
+  57%,
+  100% {
+    border-color: #fcd34d;
+    box-shadow: inset 0 0 20px #fcd34d, inset 0 0 30px #fbbf24, inset 0 0 40px #f59e0b, 0 0 20px #fcd34d, 0 0 30px
+      #fcd34d, 0 0 40px #fcd34d, 0 0 50px #fcd34d, 0 0 60px #fbbf24;
+  }
+  20%,
+  24%,
+  55% {
+    border-color: #fde68a;
+    box-shadow: inset 0 0 25px #fde68a, inset 0 0 35px #fcd34d, inset 0 0 45px #fbbf24, 0 0 25px #fde68a, 0 0 35px
+      #fde68a, 0 0 45px #fcd34d, 0 0 55px #fcd34d, 0 0 65px #fbbf24;
+  }
+}
+
+/* Enhanced outer glow for golden theme */
+.neon-frame-golden::before {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: -4px;
+  right: -4px;
+  bottom: -4px;
+  background: transparent;
+  border: 1px solid rgba(251, 191, 36, 0.3);
+  -webkit-border-radius: inherit;
+  border-radius: inherit;
+  box-shadow: 0 0 20px rgba(251, 191, 36, 0.4), 0 0 40px rgba(245, 158, 11, 0.3), 0 0 60px rgba(234, 88, 12, 0.2);
+  animation: neon-outer-glow-golden 3s ease-in-out infinite alternate;
+  pointer-events: none;
+  z-index: -1;
+  transition: all 0.7s ease-out;
+}
+
+.neon-frame-golden:hover::before {
+  box-shadow: 0 0 30px rgba(252, 211, 77, 0.6), 0 0 60px rgba(251, 191, 36, 0.5), 0 0 90px rgba(245, 158, 11, 0.4);
+}
+
+/* Enhanced Neon Rays Effect for Golden Theme */
+.neon-rays-golden {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(
+    circle at center,
+    transparent 30%,
+    rgba(251, 191, 36, 0.1) 40%,
+    rgba(251, 191, 36, 0.05) 50%,
+    transparent 60%
+  );
+  transform: translate(-50%, -50%) rotate(0deg);
+  animation: neon-rays-rotate 20s linear infinite;
+  pointer-events: none;
+  transition: opacity 0.7s ease-out, transform 0.7s ease-out;
+}
+
+@keyframes neon-rays-rotate {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg) scale(1);
+  }
+  50% {
+    transform: translate(-50%, -50%) rotate(180deg) scale(1.1);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg) scale(1);
+  }
+}
+
+.leading-tight {
+  line-height: 1.0;
+}
+
+/* Adding custom mb-0 class with 12px margin-bottom */
+.mb-0 {
+  margin-bottom: 12px;
+}
+
+/* Pause inner content animation on hover */
+.featured-inner-content:hover {
+  animation-play-state: paused;
+}
+
+/* Adding logo pulse animation that syncs with container pulse */
+@keyframes logo-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+}
+
+.logo-pulse {
+  animation: logo-pulse 2s ease-in-out infinite;
+  will-change: transform;
+}
+
+/* Pause logo animation on container hover */
+.featured-container-pulse:hover .logo-pulse {
+  animation-play-state: paused;
+}
+
+/* Web 3.0 Animations */
+@keyframes gradient-shift {
+  0%, 100% {
+    background-position: 0% 50%;
+  }
+  50% {
+    background-position: 100% 50%;
+  }
+}
+
+.animate-gradient-shift {
+  background-size: 200% 200%;
+  animation: gradient-shift 15s ease infinite;
+}
+
+@keyframes orb-float {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+  }
+  25% {
+    transform: translate(30px, -30px) scale(1.1);
+  }
+  50% {
+    transform: translate(-20px, 20px) scale(0.95);
+  }
+  75% {
+    transform: translate(20px, 30px) scale(1.05);
+  }
+}
+
+.animate-orb-float {
+  animation: orb-float 20s ease-in-out infinite;
+}
+
+.animate-orb-float-delayed {
+  animation: orb-float 25s ease-in-out infinite;
+  animation-delay: -5s;
+}
+
+@keyframes orb-pulse {
+  0%, 100% {
+    opacity: 0.15;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.3;
+    transform: scale(1.2);
+  }
+}
+
+.animate-orb-pulse {
+  animation: orb-pulse 8s ease-in-out infinite;
+}
+
+@keyframes particle-float {
+  0% {
+    transform: translateY(100vh) rotate(0deg);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100vh) rotate(720deg);
+    opacity: 0;
+  }
+}
+
+.animate-particle-float {
+  animation: particle-float 12s linear infinite;
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: -200% center;
+  }
+  100% {
+    background-position: 200% center;
+  }
+}
+
+.animate-shimmer {
+  background-size: 200% auto;
+  animation: shimmer 3s linear infinite;
+}
+
+/* Glassmorphism utilities */
+.glass {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.glass-dark {
+  background: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
